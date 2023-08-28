@@ -17,21 +17,21 @@ import com.example.demo.repository.CourseDao;
 
 
 @RestController
-@RequestMapping("/api/products")
+@RequestMapping("/products")
 public class ControllerApi {
 	
 	 @Autowired
 	    private CourseDao productRepository;
 
-	    @GetMapping("/home/list")
+	    @GetMapping("/list")
 	    public List<Product> getAllProducts() {
 	        return productRepository.findAll();
 	    }
 
-	    @GetMapping("/{id}")
-	    public Product getProductById(@PathVariable Long id) {
-	        return productRepository.findById(id).orElse(null);
-	    }
+//	    @GetMapping("/{id}")
+//	    public Product getProductById(@PathVariable Long id) {
+//	        return productRepository.findById(id).orElse(null);
+//	    }
 
 	    @PostMapping
 	    public Product createProduct(@RequestBody Product product) {
